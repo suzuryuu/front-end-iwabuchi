@@ -15,6 +15,7 @@ export default function MenuAppBar() {
   const [auth, setAuth] = React.useState(true);
   const [anchorEl, setAnchorEl] = React.useState(null);
 
+  {/*css要素*/}
   const Search = styled("div")(({ theme }) => ({
     position: "relative",
     borderRadius: theme.shape.borderRadius,
@@ -32,8 +33,7 @@ export default function MenuAppBar() {
 
   const SearchIconWrapper = styled("div")(({ theme }) => ({
     padding: theme.spacing(0, 2),
-    height: "100%",
-    position: "absolute",
+    height: "120%",
     pointerEvents: "none",
     display: "flex",
     alignItems: "center",
@@ -44,12 +44,10 @@ export default function MenuAppBar() {
     color: "inherit",
     "& .MuiInputBase-input": {
       padding: theme.spacing(1, 1, 1, 0),
-      // vertical padding + font size from searchIcon
-      paddingLeft: `calc(1em + ${theme.spacing(4)})`,
       transition: theme.transitions.create("width"),
       width: "100%",
       [theme.breakpoints.up("sm")]: {
-        width: "12ch",
+        width: "20ch",
         "&:focus": {
           width: "20ch",
         },
@@ -65,6 +63,8 @@ export default function MenuAppBar() {
     setAnchorEl(null);
   };
 
+  
+
   /*検索バー　プロフィールアイコン */
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -78,14 +78,15 @@ export default function MenuAppBar() {
             カテゴリ
           </Typography>
 
+          {/*Tabkey*/}
           <Search>
             <SearchIconWrapper>
-              <SearchIcon />
+              {/*アイコン*/}
+            <SearchIcon />
             </SearchIconWrapper>
             <StyledInputBase
               placeholder="teaching…"
-              inputProps={{ "aria-label": "search" }}
-            />
+            />  
           </Search>
 
           <Search>
@@ -94,7 +95,6 @@ export default function MenuAppBar() {
             </SearchIconWrapper>
             <StyledInputBase
               placeholder="coating…"
-              inputProps={{ "aria-label": "search" }}
             />
           </Search>
 
@@ -107,12 +107,13 @@ export default function MenuAppBar() {
                 aria-haspopup="true"
                 onClick={handleMenu}
                 color="inherit"
-              >
+            >
                 <AccountCircle />
               </IconButton>
+              {/*profileicon　位置*/}
               <Menu
                 id="menu-appbar"
-                anchorEl={anchorEl}
+                //anchorEl={//anchorEl}
                 anchorOrigin={{
                   vertical: "top",
                   horizontal: "right",
