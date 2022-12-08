@@ -19,8 +19,8 @@ export default function Edit() {
   const [profile, setprofile] = useState([]);
   const [pview, setpview] = useState(false);
   const profileFinal = profile.map((item) => item.pview);
-  
-    const onClose = () => {
+
+  const onClose = () => {
     setpview(null);
   };
 
@@ -30,8 +30,12 @@ export default function Edit() {
 
   /*受け取り画像処理*/
   const saveCropImage = () => {
-    setprofile([...profile, { pview }]);
-    setimagecrop(false);
+    if (pview != pview) {
+      setprofile([...profile, { pview }]);
+      setimagecrop(false);
+    } else {
+      setimagecrop(false);
+    }
   };
 
   /*タグの一覧 変更する場合はここから*/
@@ -64,8 +68,6 @@ export default function Edit() {
         label="戻る"
       />
 
-      
-
       {/*全体位置指定*/}
       <Grid
         container
@@ -83,9 +85,8 @@ export default function Edit() {
               objectFit: "cover",
             }}
             onClick={() => setimagecrop(true)}
-          
             /*初期画像*/
-            src={profileFinal.length ?profileFinal : img}
+            src={profileFinal.length ? profileFinal : img}
             alt=""
           />
 
@@ -104,7 +105,7 @@ export default function Edit() {
               backgroundColor={"#474649"}
             />
 
-            <Button onClick={saveCropImage} label="save" icon="pi pi-check"/>
+            <Button onClick={saveCropImage} label="save" icon="pi pi-check" />
           </Dialog>
         </Grid>
 
