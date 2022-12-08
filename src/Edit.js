@@ -31,8 +31,7 @@ export default function Edit() {
   /*受け取り画像処理*/
   const saveCropImage = () => {
     if (pview != pview) {
-      setprofile([...profile, { pview }]);
-      setimagecrop(false);
+      setprofile([...profile, { pview }]);   
     } else {
       setimagecrop(false);
     }
