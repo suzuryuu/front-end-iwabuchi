@@ -93,7 +93,9 @@ export default function Edit() {
             visible={imagecrop}
             header={() => <p>プロフィール画像選択</p>}
             onHide={() => setimagecrop(false)}
+            
           >
+            <Button onClick={saveCropImage} label="save" icon="pi pi-check" />
             <Avatar
               width={500}
               height={400}
@@ -103,11 +105,9 @@ export default function Edit() {
               shadingColor={"#474649"}
               backgroundColor={"#474649"}
             />
-
-            <Button onClick={saveCropImage} label="save" icon="pi pi-check" />
           </Dialog>
         </Grid>
-
+       
         <Grid>
           <TextField
             id="standard-textarea"
@@ -180,7 +180,7 @@ export default function Edit() {
           />
         </Grid>
 
-        <Grid item xs={5} sm={8} pt={5} >
+        <Grid item xs={5} sm={8} pt={5}>
           <Button
             variant="outlined"
             color="primary"
