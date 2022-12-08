@@ -24,7 +24,7 @@ export default function MenuAppBar() {
   /*ホームボタン　プロフィールアイコン */
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+      <AppBar position="fixed">
         <Toolbar>
           {/*ホームボタン　aタグにリンク*/}
           <Grid container sx={{ flexGrow: 1 }}>
