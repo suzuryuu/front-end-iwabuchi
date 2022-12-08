@@ -36,17 +36,17 @@ export default function Edit() {
 
   /*タグの一覧 変更する場合はここから*/
   const tag = [
-    { label: "Shoot" },
-    { label: "Capacity" },
-    { label: "Judge" },
-    { label: "Other" },
+    { label: "ApexLegends" },
+    { label: "Splatoon3" },
+    { label: "Valolant" },
+    { label: "League of Legends" },
   ];
 
   const tag2 = [
-    { label: "Shoot" },
-    { label: "Capacity" },
-    { label: "Judge" },
-    { label: "Other" },
+    { label: "ApexLegends" },
+    { label: "Splatoon3" },
+    { label: "Valolant" },
+    { label: "League of Legends" },
   ];
 
   const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
