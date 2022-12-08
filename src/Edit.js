@@ -180,16 +180,17 @@ export default function Edit() {
           />
         </Grid>
 
-        <Grid item xs={5} sm={8} pt={5}>
-        <Button
-        variant="outlined"
-        color="primary"
-        style={{
-          width: "60px",
-          height: "50px",
-        }}
-        label="保存"
-      />
+        <Grid item xs={5} sm={8} pt={5} >
+          <Button
+            variant="outlined"
+            color="primary"
+            style={{
+              width: "60px",
+              height: "50px",
+              marginLeft: "440px",
+            }}
+            label="保存"
+          />
         </Grid>
       </Grid>
     </Box>
