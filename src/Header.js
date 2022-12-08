@@ -30,10 +30,11 @@ export default function MenuAppBar() {
           <Grid container sx={{ flexGrow: 1 }}>
             <a href="home.html">
               <IconButton>
-                <HomeIcon sx={{ fontSize: 40 }} color="black" />
+                <HomeIcon sx={{ fontSize: 49 }} color="black" />
               </IconButton>
             </a>
           </Grid>
+
 
           <IconButton
             aria-label="account of current user"
@@ -43,7 +44,7 @@ export default function MenuAppBar() {
             color="inherit"
           >
             <Grid container sx={{ flexGrow: 1 }}>
-              <AccountCircle sx={{ fontSize: 40 }} color="black" />
+              <AccountCircle sx={{ fontSize: 49 }} color="black" />
             </Grid>
           </IconButton>
 
