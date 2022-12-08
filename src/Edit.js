@@ -31,7 +31,7 @@ export default function Edit() {
   /*受け取り画像処理*/
   const saveCropImage = () => {
     if (pview != pview) {
-      setprofile([...profile, { pview }]);   
+      setprofile([...profile, { pview }]);
     } else {
       setimagecrop(false);
     }
@@ -178,6 +178,18 @@ export default function Edit() {
               <TextField {...params} label="CoatingSkill" />
             )}
           />
+        </Grid>
+
+        <Grid item xs={5} sm={8} pt={5}>
+        <Button
+        variant="outlined"
+        color="primary"
+        style={{
+          width: "60px",
+          height: "50px",
+        }}
+        label="保存"
+      />
         </Grid>
       </Grid>
     </Box>
