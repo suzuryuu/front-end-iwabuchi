@@ -92,10 +92,10 @@ export default function Edit() {
           <Dialog
             visible={imagecrop}
             header={() => <p>プロフィール画像選択</p>}
-            onHide={() => setimagecrop(false)}
-            
+            onHide={() => setimagecrop(false)} 
           >
-            <Button onClick={saveCropImage} label="save" icon="pi pi-check" />
+            <Button onHide={() => setimagecrop(false)} label="cansel"/> {/*キャンセルボタン*/}
+            <Button onClick={saveCropImage} label="save" icon="pi pi-check" />{/*保存ボタン*/}
             <Avatar
               width={500}
               height={400}
@@ -128,57 +128,29 @@ export default function Edit() {
           />
         </Grid>
 
-        <Grid>
+        <Grid item xs={5} sm={8} pt={5}>
           教えたい技術
           <Autocomplete
-            multiple
-            id="checkbox3"
+            disablePortal
+            id="combo-box-demo"
             options={tag}
-            disableCloseOnSelect
-            getOptionLabel={(option) => option.label}
-            renderOption={(props, option, { selected }) => (
-              <li {...props}>
-                <Checkbox
-                  icon={icon}
-                  checkedIcon={checkedIcon}
-                  style={{ marginRight: 8 }}
-                  checked={selected}
-                />
-                {option.label}
-              </li>
-            )}
-            style={{ width: 500 }}
-            renderInput={(params) => (
-              <TextField {...params} label="TectingSkill" />
-            )}
+            sx={{ width: 300 }}
+            renderInput={(params) => <TextField {...params} label="Teaching" />}
           />
         </Grid>
 
+        
         <Grid item xs={5} sm={8} pt={5}>
-          教わりたい技術
+          教えたい技術
           <Autocomplete
-            multiple
-            id="checkbox3"
-            options={tag2}
-            disableCloseOnSelect
-            getOptionLabel={(option) => option.label}
-            renderOption={(props, option, { selected }) => (
-              <li {...props}>
-                <Checkbox
-                  icon={icon}
-                  checkedIcon={checkedIcon}
-                  style={{ marginRight: 8 }}
-                  checked={selected}
-                />
-                {option.label}
-              </li>
-            )}
-            style={{ width: 500 }}
-            renderInput={(params) => (
-              <TextField {...params} label="CoatingSkill" />
-            )}
+            disablePortal
+            id="combo-box-demo"
+            options={tag}
+            sx={{ width: 300 }}
+            renderInput={(params) => <TextField {...params} label="Teaching" />}
           />
         </Grid>
+        
 
         <Grid item xs={5} sm={8} pt={5}>
           <Button
