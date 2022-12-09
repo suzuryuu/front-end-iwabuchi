@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 import Avatar from "react-avatar-edit";
 import { Dialog } from "primereact/dialog";
 import { Button } from "primereact/button";
@@ -19,8 +20,9 @@ export default function Edit() {
   const [profile, setprofile] = useState([]);
   const [pview, setpview] = useState(false);
   const profileFinal = profile.map((item) => item.pview);
-  
-    const onClose = () => {
+  const baseURL = "https://w24fj3bk3k.execute-api.ap-northeast-1.amazonaws.com/deploy0_0";
+
+  const onClose = () => {
     setpview(null);
   };
 
@@ -30,8 +32,11 @@ export default function Edit() {
 
   /*受け取り画像処理*/
   const saveCropImage = () => {
-    setprofile([...profile, { pview }]);
-    setimagecrop(false);
+    if (pview != pview) {
+      setprofile([...profile, { pview }]);
+    } else {
+      setimagecrop(false);
+    }
   };
 
   /*タグの一覧 変更する場合はここから*/
@@ -48,7 +53,6 @@ export default function Edit() {
     { label: "Valolant" },
     { label: "League of Legends" },
   ];
-
   const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
   const checkedIcon = <CheckBoxIcon fontSize="small" />;
 
@@ -63,8 +67,6 @@ export default function Edit() {
         }}
         label="戻る"
       />
-
-      
 
       {/*全体位置指定*/}
       <Grid
@@ -83,17 +85,18 @@ export default function Edit() {
               objectFit: "cover",
             }}
             onClick={() => setimagecrop(true)}
-          
             /*初期画像*/
-            src={profileFinal.length ?profileFinal : img}
+            src={profileFinal.length ? profileFinal : img}
             alt=""
           />
 
           <Dialog
             visible={imagecrop}
             header={() => <p>プロフィール画像選択</p>}
-            onHide={() => setimagecrop(false)}
+            onHide={() => setimagecrop(false)} 
           >
+            <Button onHide={() => setimagecrop(false)} label="cansel"/> {/*キャンセルボタン*/}
+            <Button onClick={saveCropImage} label="save" icon="pi pi-check" />{/*保存ボタン*/}
             <Avatar
               width={500}
               height={400}
@@ -103,11 +106,9 @@ export default function Edit() {
               shadingColor={"#474649"}
               backgroundColor={"#474649"}
             />
-
-            <Button onClick={saveCropImage} label="save" icon="pi pi-check"/>
           </Dialog>
         </Grid>
-
+       
         <Grid>
           <TextField
             id="standard-textarea"
@@ -128,58 +129,44 @@ export default function Edit() {
           />
         </Grid>
 
-        <Grid>
+        <Grid item xs={5} sm={8} pt={5}>
           教えたい技術
           <Autocomplete
-            multiple
-            id="checkbox3"
+            disablePortal
+            id="combo-box-demo"
             options={tag}
-            disableCloseOnSelect
-            getOptionLabel={(option) => option.label}
-            renderOption={(props, option, { selected }) => (
-              <li {...props}>
-                <Checkbox
-                  icon={icon}
-                  checkedIcon={checkedIcon}
-                  style={{ marginRight: 8 }}
-                  checked={selected}
-                />
-                {option.label}
-              </li>
-            )}
-            style={{ width: 500 }}
-            renderInput={(params) => (
-              <TextField {...params} label="TectingSkill" />
-            )}
+            sx={{ width: 300 }}
+            renderInput={(params) => <TextField {...params} label="Teaching" />}
           />
         </Grid>
 
+        
         <Grid item xs={5} sm={8} pt={5}>
-          教わりたい技術
+          教えたい技術
           <Autocomplete
-            multiple
-            id="checkbox3"
-            options={tag2}
-            disableCloseOnSelect
-            getOptionLabel={(option) => option.label}
-            renderOption={(props, option, { selected }) => (
-              <li {...props}>
-                <Checkbox
-                  icon={icon}
-                  checkedIcon={checkedIcon}
-                  style={{ marginRight: 8 }}
-                  checked={selected}
-                />
-                {option.label}
-              </li>
-            )}
-            style={{ width: 500 }}
-            renderInput={(params) => (
-              <TextField {...params} label="CoatingSkill" />
-            )}
+            disablePortal
+            id="combo-box-demo"
+            options={tag}
+            sx={{ width: 300 }}
+            renderInput={(params) => <TextField {...params} label="Teaching" />}
+          />
+        </Grid>
+        
+
+        <Grid item xs={5} sm={8} pt={5}>
+          <Button
+            variant="outlined"
+            color="primary"
+            style={{
+              width: "60px",
+              height: "50px",
+              marginLeft: "440px",
+            }}
+            label="保存"
           />
         </Grid>
       </Grid>
     </Box>
   );
 }
+
