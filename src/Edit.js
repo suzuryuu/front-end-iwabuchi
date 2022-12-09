@@ -134,7 +134,7 @@ export default function Edit() {
             disablePortal
             id="combo-box-demo"
             options={tag}
-            sx={{ width: 300 }}
+            sx={{ width: 400 }}
             renderInput={(params) => <TextField {...params} label="Teaching" />}
           />
         </Grid>
@@ -145,8 +145,8 @@ export default function Edit() {
           <Autocomplete
             disablePortal
             id="combo-box-demo"
-            options={tag}
-            sx={{ width: 300 }}
+            options={tag2}
+            sx={{ width: 400 }}
             renderInput={(params) => <TextField {...params} label="Teaching" />}
           />
         </Grid>
