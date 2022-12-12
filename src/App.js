@@ -5,13 +5,14 @@ import Home from './Home';
 import Matching from './Matchinguser';
 import Request from './Requestuser';
 import Footer from './Footer';
+import Chat from './Chat';
 
 function App() {
   return (
     
     <div className="App">
    
-    <Header />  {/*ヘッダー */}
+    {/*<Header />  {/*ヘッダー */}
 
     {/*<Profile />{/*プロフィール画面*/}
   
@@ -22,6 +23,8 @@ function App() {
     {/*<Matching/>{/*マッチングユーザ画面*/}
 
     <Request/>{/*リクエストユーザ画面*/}
+
+    {/*<Chat/>{/*チャット画面*/}
 
     {/*<Footer/>{/*フッター*/}
 
