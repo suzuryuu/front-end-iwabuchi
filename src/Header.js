@@ -30,7 +30,7 @@ export default function MenuAppBar() {
           <Grid container sx={{ flexGrow: 1 }}>
             <a href="home.html">
               <IconButton>
-                <HomeIcon sx={{ fontSize: 49 }} color="black" />
+                <HomeIcon sx={{ fontSize: 49 }} style={{ color: "white" }}/>
               </IconButton>
             </a>
           </Grid>
