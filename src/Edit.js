@@ -2,15 +2,11 @@ import React, { useState } from "react";
 import Avatar from "react-avatar-edit";
 import { Dialog } from "primereact/dialog";
 import { Button } from "primereact/button";
-import { InputText } from "primereact/inputtext";
 import img from "./user.jpg";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Autocomplete from "@mui/material/Autocomplete";
 import TextField from "@mui/material/TextField";
-import Checkbox from "@mui/material/Checkbox";
-import CheckBoxOutlineBlankIcon from "@mui/icons-material/CheckBoxOutlineBlank";
-import CheckBoxIcon from "@mui/icons-material/CheckBox";
 
 export default function Edit() {
   /*プロフィール画像処理*/
@@ -52,9 +48,6 @@ export default function Edit() {
     { label: "Other" },
   ];
 
-  const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
-  const checkedIcon = <CheckBoxIcon fontSize="small" />;
-
   return (
     <Box>
       <Button
@@ -84,7 +77,6 @@ export default function Edit() {
               objectFit: "cover",
             }}
             onClick={() => setimagecrop(true)}
-            /*初期画像*/
             src={profileFinal.length ? profileFinal : img}
             alt=""
           />
@@ -92,10 +84,12 @@ export default function Edit() {
           <Dialog
             visible={imagecrop}
             header={() => <p>プロフィール画像選択</p>}
-            onHide={() => setimagecrop(false)} 
+            onHide={() => setimagecrop(false)}
           >
-            <Button onHide={() => setimagecrop(false)} label="cansel"/> {/*キャンセルボタン*/}
-            <Button onClick={saveCropImage} label="save" icon="pi pi-check" />{/*保存ボタン*/}
+            <Button onHide={() => setimagecrop(false)} label="cansel" />{" "}
+            {/*キャンセルボタン*/}
+            <Button onClick={saveCropImage} label="save" icon="pi pi-check" />
+            {/*保存ボタン*/}
             <Avatar
               width={500}
               height={400}
@@ -107,7 +101,7 @@ export default function Edit() {
             />
           </Dialog>
         </Grid>
-       
+
         <Grid>
           <TextField
             id="standard-textarea"
@@ -139,9 +133,8 @@ export default function Edit() {
           />
         </Grid>
 
-        
         <Grid item xs={5} sm={8} pt={5}>
-          教えたい技術
+          教わりたい技術
           <Autocomplete
             disablePortal
             id="combo-box-demo"
@@ -150,7 +143,6 @@ export default function Edit() {
             renderInput={(params) => <TextField {...params} label="Teaching" />}
           />
         </Grid>
-        
 
         <Grid item xs={5} sm={8} pt={5}>
           <Button
