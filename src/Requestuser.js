@@ -8,6 +8,7 @@ import Paper from "@mui/material/Paper";
 import Checkbox from "@mui/material/Checkbox";
 import { Button } from "primereact/button";
 import Box from "@mui/material/Box";
+import { blue } from "@mui/material/colors";
 
 function createData(name, promise, Refusal) {
   return { name, promise, Refusal };
@@ -74,7 +75,7 @@ export default function BasicTable() {
               >
                 <TableCell component="th" scope="row">
                   {/*ユーザプロフィール画面に*/}
-                  <a href="profile.html">{row.name}</a>
+                  <a href="profile.html" style={{color:"blue"}}>{row.name}</a>
                 </TableCell>
                 {/*チェックの場所*/}
                 <TableCell align="right">{row.promise}</TableCell>
