@@ -16,9 +16,12 @@ export default function Footer() {
     <Box>
       <AppBar position="fixed" color="primary" sx={{ top: "auto", bottom: 0 }}>
         <Toolbar>
-          <Typography variant="h10" component="div">
-            利用規約
-          </Typography>
+          {/*タイトルに行く？*/}
+          <a href="index.html" style={{ color: "white" }}>
+            <Typography variant="h10" component="div">
+              利用規約
+            </Typography>
+          </a>
 
           <Typography
             variant="h10"
@@ -26,7 +29,7 @@ export default function Footer() {
             textAlign={"center"}
             sx={{ flexGrow: 1 }}
           >
-            ©2022-team22
+            ©2023-team22
           </Typography>
 
           <Typography>
