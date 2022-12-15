@@ -8,31 +8,31 @@ import {
   MessageInput,
 } from "@chatscope/chat-ui-kit-react";
 
-
 export default function Chat() {
   return (
     //画面サイズ
-    <div style={{ position: "relative", height: "880px" }}>
+    <div style={{ position: "relative", height: "700px" }}>
       <MainContainer>
         <ChatContainer>
           <MessageList>
             {/*左側のユーザ messageに文字*/}
             <Message
               model={{
-                message: "Hello my friend"
+                message: "Hello my friend",
               }}
             >
               {/*senderで名前*/}
               <Message.Footer sender="name" />
             </Message>
 
-            {/*右側のユーザ outgoingは右側*/}
             <Message
               model={{
-                message: "Hello",
-                direction: "outgoing",
+                message: "Hello my friend",
               }}
-            ></Message>
+            >
+              {/*senderで名前*/}
+              <Message.Footer sender="name" />
+            </Message>
           </MessageList>
           {/*attachButtonは添付を使うかのもの MessageInputはメッセージを送信するためにいれるもの*/}
           <MessageInput
