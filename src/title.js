@@ -4,7 +4,7 @@ import Typography from "@mui/material/Typography";
 import './title.css';
 
 
-export default function free() {
+export default function title() {
   return (
     <Box>
       {/*タイトルの位置*/}
