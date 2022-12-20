@@ -14,7 +14,7 @@ export default function free() {
             <Typography variant="h2"  class="text1" >Game Skill TeO</Typography>
           </Grid>
           <Grid item xs={12} align="center">
-          <Typography variant="h2"class="text1" >Mutual gaming skill UP!</Typography>
+          <Typography variant="h1"class="text1" >Game</Typography>
           </Grid>
           <Grid item xs={12} align="center" >
           <Typography variant="h2" class="text1" >利用手順</Typography>
