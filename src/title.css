@@ -1,0 +1,73 @@
+/*bodyは背景画像*/
+body {
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  animation: move 13s infinite both;
+
+
+}
+
+/*アニメーション　画像の切り替え*/
+@keyframes move {
+  0% {
+    background-image: url("apex.jpg");
+    background-size: 150% auto;
+  }
+
+  50% {
+    background-image: url("valo.jpg");
+    background-size: 240% auto;
+  }
+
+  100% {
+    background-image: url("spla.jpg");
+    background-size: 150% auto;
+  }
+}
+
+/*上の文字2つ　text-shadow:0 5px 5px rgb(5, 5, 5);*/
+.text1 {
+  font-family: "sans-serif";
+  font-size: 50px;
+  color: aliceblue;
+  text-shadow: 1px 1px 2px rgb(18, 18, 18), 0 0 1em rgb(6, 6, 6), 0 0 0.2em rgb(15, 109, 232);
+}
+
+.text1::before{
+  animation: shine .6s ease 1.5s;
+  content:"";
+  position: absolute;
+  top: 0;
+  left: -250px;
+  width: 100%;
+  height: 100%;
+  transform: rotate3d(0,0,1,-45deg) translate3d(0,-120%,0);
+}
+
+@keyframes shine {
+  0% {transform: rotate3d(0,0,1,-45deg) translate3d(0,-120%,0);background: rgba(255,255,255,0.5);}
+  100% {transform: rotate3d(0,0,1,-25deg) translate3d(0,150%,0);background: rgba(255,255,255,0.5);}
+}
+
+
+/*リンク色*/
+a:hover {
+  color: #eb1818;
+  text-decoration: underline;
+}
+
+a:link {
+  color: #0000FF;
+}
+
+a:visited {
+  color: #6600FF;
+}
+
+/*userprocol*/
+.back{
+  background-color: rgb(228, 242, 242);
+}
