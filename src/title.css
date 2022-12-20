@@ -6,8 +6,7 @@ body {
   background-repeat: no-repeat;
   background-position: 50%;
   animation: move 13s infinite both;
-
-
+  background-color: black;
 }
 
 /*アニメーション　画像の切り替え*/
@@ -31,11 +30,14 @@ body {
 /*上の文字2つ　text-shadow:0 5px 5px rgb(5, 5, 5);*/
 .text1 {
   font-family: "sans-serif";
+  font-style: italic;
   font-size: 50px;
   color: aliceblue;
-  text-shadow: 1px 1px 2px rgb(18, 18, 18), 0 0 1em rgb(6, 6, 6), 0 0 0.2em rgb(15, 109, 232);
+  text-shadow: 1px 1px 2px rgb(18, 18, 18), 0 0 1em rgb(57, 5, 245), 0 0 0.2em rgb(15, 109, 232);
 }
 
+
+/*サイト開いたときのアニメーション*/
 .text1::before{
   animation: shine .6s ease 1.5s;
   content:"";
@@ -67,7 +69,4 @@ a:visited {
   color: #6600FF;
 }
 
-/*userprocol*/
-.back{
-  background-color: rgb(228, 242, 242);
-}
+
