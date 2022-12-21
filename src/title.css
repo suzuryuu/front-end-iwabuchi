@@ -1,4 +1,4 @@
-/*bodyは背景画像*/
+/*bodyは背景画像  background-color: black;*/
 body {
   margin: 0;
   width: 100vw;
@@ -6,7 +6,7 @@ body {
   background-repeat: no-repeat;
   background-position: 50%;
   animation: move 13s infinite both;
-  background-color: black;
+  background: linear-gradient(#FFB3E7,#FF54C9);
 }
 
 /*アニメーション　画像の切り替え*/
@@ -56,17 +56,17 @@ body {
 
 
 /*リンク色*/
+a:link{
+  color: green;
+}
+
 a:hover {
-  color: #eb1818;
+  color: #f30661;
   text-decoration: underline;
 }
 
-a:link {
-  color: #0000FF;
-}
-
 a:visited {
-  color: #6600FF;
+  color: #09f8b0;
 }
 
 
