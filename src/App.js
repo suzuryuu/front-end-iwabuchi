@@ -6,6 +6,9 @@ import Matching from './Matchinguser';
 import Request from './Requestuser';
 import Footer from './Footer';
 import Chat from './Chat';
+import Title from './title';
+import Title2 from './titleunder';
+
 
 function App() {
   return (
@@ -22,11 +25,16 @@ function App() {
 
     {/*<Matching/>{/*マッチングユーザ画面*/}
 
-    <Request/>{/*リクエストユーザ画面*/}
+    {/*<Request/>{/*リクエストユーザ画面*/}
 
     {/*<Chat/>{/*チャット画面*/}
 
+    <Title/>{/*タイトル画面*/}
+    <Title2/>{/*タイトル画面*/}
+
     {/*<Footer/>{/*フッター*/}
+
+    
 
 
     </div>
