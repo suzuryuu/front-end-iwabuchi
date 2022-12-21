@@ -24,7 +24,7 @@ export default function titleunder() {
             <a href="logon.html">登録はこちらから</a>
           </Typography>
 
-          <Typography color="text.secondary"align="center" style={{color: "red"}}>
+          <Typography color="text.secondary"align="center" style={{color: "white"}}>
             ＊メールアドレスが必要になります。
           </Typography>
         </CardContent>
@@ -46,7 +46,7 @@ export default function titleunder() {
             >
               <a href="login.html">登録済みの方はこちらから</a>
             </Typography>
-            <Typography color="text.secondary"align="center" style={{color: "red"}}>
+            <Typography color="text.secondary"align="center" style={{color: "white"}}>
             ＊メールアドレス、パスワードが必要になります。
             </Typography>
           </CardContent>
@@ -63,7 +63,7 @@ export default function titleunder() {
           <Typography gutterBottom variant="h5" component="div" align="center">
           <a href="login.html">退会はこちらから</a>
           </Typography>
-          <Typography color="text.secondary"align="center" style={{color: "red"}}>
+          <Typography color="text.secondary"align="center" style={{color: "white"}}>
             ＊退会するとアカウントが消えます。
             </Typography>
         </CardContent>
