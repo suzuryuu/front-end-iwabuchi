@@ -6,7 +6,7 @@ import CardContent from "@mui/material/CardContent";
 import CardHeader from "@mui/material/CardHeader";
 import './title.css';
 
-export default function free() {
+export default function userprotocol() {
   return (
     <Box>
       {/*カードサイズ sx={{ maxWidth: 300 }} */}
