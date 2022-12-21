@@ -15,7 +15,7 @@ import CheckBoxIcon from "@mui/icons-material/CheckBox";
 
 
 
-const baseURL = "https://w24fj3bk3k.execute-api.ap-northeast-1.amazonaws.com/deploy0_0";
+const baseURL = "";
 
 
 export default function Edit() {
@@ -85,13 +85,13 @@ export default function Edit() {
   // //'Access-Control-Allow-Credentials' はAPIGatewayのCORS有効化時にtrueにしてます
   const onClickGetAPI = async() => {
     console.log(values)
-    const API_ENDPOINT = " https://2yk1rcryd1.execute-api.ap-northeast-1.amazonaws.com/profile_edit/edit"
+    const API_ENDPOINT = 
     const URL = API_ENDPOINT + values;
     
     try {
         const response = await axios.post(URL,{
           headers: {
-            'x-api-key': "RycZ63oLxu4wt31H0wPZc7cT0X6sqgEW3tso8pGI",
+            'x-api-key': "",
             'Access-Control-Allow-Origin': 'http://localhost:3000'
           }
         });
