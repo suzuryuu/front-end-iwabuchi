@@ -14,13 +14,6 @@ import CheckBoxOutlineBlankIcon from "@mui/icons-material/CheckBoxOutlineBlank";
 import CheckBoxIcon from "@mui/icons-material/CheckBox";
 
 
-<<<<<<< HEAD
-=======
-
-const baseURL = "";
-
-
->>>>>>> 2586f38e224fe59633c524af06b71312ee82312b
 export default function Edit() {
   /*プロフィール画像処理*/
   const [imagecrop, setimagecrop] = useState("");
