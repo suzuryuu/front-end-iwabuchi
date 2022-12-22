@@ -76,4 +76,27 @@ a:visited {
   color: #09f8b0;
 }
 
+/*リンクに触れたときのアニメーション*/
+a{
+  position: relative;
+  display: inline-block;
+  transition: 0.5s;
+}
 
+a::before, a::after {
+  position: absolute;
+  left: 0;
+  content: '';
+  width: 0;
+  border-bottom: solid 1px #0afafa;
+  transition: 0.5s;
+}
+a::before{
+  top: 0;
+}
+a::after{
+  bottom: 0;
+}
+a:hover::before, a:hover::after {
+  width: 100%;
+}
