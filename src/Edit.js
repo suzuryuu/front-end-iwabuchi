@@ -77,31 +77,20 @@ export default function Edit() {
 
   //　APIで編集結果を送信
   const onClickGetAPI = async() => {
-<<<<<<< HEAD
     // console.log(values)
     // console.log(values.nickname)
     // console.log(values.intro)
     // console.log(values.haveSkill)
     // console.log(values.wantSkill)
 
-    const URL = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
-=======
-    console.log(values)
-    const API_ENDPOINT = 
-    const URL = API_ENDPOINT + values;
->>>>>>> 2586f38e224fe59633c524af06b71312ee82312b
+    const URL = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
     
     try {
         const response = await axios.post(URL,values,
         {
           headers: {
-<<<<<<< HEAD
             'Content-Type': 'application/json',
-            'x-api-key': 'xxxxxxxxxxxxxxx'
-=======
-            'x-api-key': "",
-            'Access-Control-Allow-Origin': 'http://localhost:3000'
->>>>>>> 2586f38e224fe59633c524af06b71312ee82312b
+            'x-api-key': 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
           }
         });
         console.log(response.data)
