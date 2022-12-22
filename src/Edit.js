@@ -3,15 +3,11 @@ import axios from "axios";
 import Avatar from "react-avatar-edit";
 import { Dialog } from "primereact/dialog";
 import { Button } from "primereact/button";
-import { InputText } from "primereact/inputtext";
 import img from "./user.jpg";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Autocomplete from "@mui/material/Autocomplete";
 import TextField from "@mui/material/TextField";
-import Checkbox from "@mui/material/Checkbox";
-import CheckBoxOutlineBlankIcon from "@mui/icons-material/CheckBoxOutlineBlank";
-import CheckBoxIcon from "@mui/icons-material/CheckBox";
 
 
 export default function Edit() {
@@ -47,9 +43,6 @@ export default function Edit() {
     { label: "League of Legends" },
   ];
 
-  const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
-  const checkedIcon = <CheckBoxIcon fontSize="small" />;
-
   // 値を変更した時にvalueに一時保存
   const [values, setValues] = React.useState({
     nickname : '',
@@ -77,20 +70,15 @@ export default function Edit() {
 
   //　APIで編集結果を送信
   const onClickGetAPI = async() => {
-    // console.log(values)
-    // console.log(values.nickname)
-    // console.log(values.intro)
-    // console.log(values.haveSkill)
-    // console.log(values.wantSkill)
 
-    const URL = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+    const URL = "https://mhii07htra.execute-api.ap-northeast-1.amazonaws.com/deploy0_0/send"
     
     try {
         const response = await axios.post(URL,values,
         {
           headers: {
             'Content-Type': 'application/json',
-            'x-api-key': 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+            'x-api-key': 'RycZ63oLxu4wt31H0wPZc7cT0X6sqgEW3tso8pGI'
           }
         });
         console.log(response.data)
