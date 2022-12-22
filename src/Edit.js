@@ -14,10 +14,6 @@ import CheckBoxOutlineBlankIcon from "@mui/icons-material/CheckBoxOutlineBlank";
 import CheckBoxIcon from "@mui/icons-material/CheckBox";
 
 
-
-const baseURL = "https://w24fj3bk3k.execute-api.ap-northeast-1.amazonaws.com/deploy0_0";
-
-
 export default function Edit() {
   /*プロフィール画像処理*/
   const [imagecrop, setimagecrop] = useState("");
@@ -25,8 +21,6 @@ export default function Edit() {
   const [profile, setprofile] = useState([]);
   const [pview, setpview] = useState(false);
   const profileFinal = profile.map((item) => item.pview);
-  const [post, setPost] = React.useState(null);
-  const data = new FormData();
   
   const onClose = () => {
     setpview(null);
@@ -58,10 +52,10 @@ export default function Edit() {
 
   // 値を変更した時にvalueに一時保存
   const [values, setValues] = React.useState({
-    nickname: '',
-    intro: '',
-    haveSkill: '',
-    wantSkill: ''
+    nickname : '',
+    intro : '',
+    haveSkill : '',
+    wantSkill : ''
   });
 
   //nicknameの値を更新
@@ -81,18 +75,22 @@ export default function Edit() {
   const [inputValue_want, setInputValue_want] = React.useState('');
 
 
-  // //　buttonを押すと呼ばれる
-  // //'Access-Control-Allow-Credentials' はAPIGatewayのCORS有効化時にtrueにしてます
+  //　APIで編集結果を送信
   const onClickGetAPI = async() => {
-    console.log(values)
-    const API_ENDPOINT = " https://2yk1rcryd1.execute-api.ap-northeast-1.amazonaws.com/profile_edit/edit"
-    const URL = API_ENDPOINT + values;
+    // console.log(values)
+    // console.log(values.nickname)
+    // console.log(values.intro)
+    // console.log(values.haveSkill)
+    // console.log(values.wantSkill)
+
+    const URL = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
     
     try {
-        const response = await axios.post(URL,{
+        const response = await axios.post(URL,values,
+        {
           headers: {
-            'x-api-key': "RycZ63oLxu4wt31H0wPZc7cT0X6sqgEW3tso8pGI",
-            'Access-Control-Allow-Origin': 'http://localhost:3000'
+            'Content-Type': 'application/json',
+            'x-api-key': 'xxxxxxxxxxxxxxx'
           }
         });
         console.log(response.data)
@@ -181,21 +179,23 @@ export default function Edit() {
 
         <Grid item xs={5} sm={8} pt={5}>
           教えたい技術
-          <div>{`inputValue_have: '${inputValue_have}'`}</div>
           <Autocomplete
             disablePortal
             id="combo-box-demo"
             options={tag}
             sx={{ width: 300 }}
             renderInput={(params) => <TextField {...params} label="Teaching" />}
+            
             //onInputChangeでvaluesにhaveSkillの値を一時的に保存する
             inputValue_have={inputValue_have}
             value={values.haveSkill}
+
             onInputChange={(event, newInputValue) => {
               console.log(newInputValue)
               setInputValue_have(newInputValue)
               setValues({ ...values, haveSkill: newInputValue});
             }}
+
           />
         </Grid>
 
@@ -208,6 +208,7 @@ export default function Edit() {
             options={tag}
             sx={{ width: 300 }}
             renderInput={(params) => <TextField {...params} label="coaching" />}
+            
             //onInputChangeでvaluesにwantSkillの値を一時的に保存する
             inputValue_want={inputValue_want}
             value={values.wantSkill}
