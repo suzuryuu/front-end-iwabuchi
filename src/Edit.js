@@ -14,6 +14,13 @@ import CheckBoxOutlineBlankIcon from "@mui/icons-material/CheckBoxOutlineBlank";
 import CheckBoxIcon from "@mui/icons-material/CheckBox";
 
 
+<<<<<<< HEAD
+=======
+
+const baseURL = "";
+
+
+>>>>>>> 2586f38e224fe59633c524af06b71312ee82312b
 export default function Edit() {
   /*プロフィール画像処理*/
   const [imagecrop, setimagecrop] = useState("");
@@ -77,6 +84,7 @@ export default function Edit() {
 
   //　APIで編集結果を送信
   const onClickGetAPI = async() => {
+<<<<<<< HEAD
     // console.log(values)
     // console.log(values.nickname)
     // console.log(values.intro)
@@ -84,13 +92,23 @@ export default function Edit() {
     // console.log(values.wantSkill)
 
     const URL = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+=======
+    console.log(values)
+    const API_ENDPOINT = 
+    const URL = API_ENDPOINT + values;
+>>>>>>> 2586f38e224fe59633c524af06b71312ee82312b
     
     try {
         const response = await axios.post(URL,values,
         {
           headers: {
+<<<<<<< HEAD
             'Content-Type': 'application/json',
             'x-api-key': 'xxxxxxxxxxxxxxx'
+=======
+            'x-api-key': "",
+            'Access-Control-Allow-Origin': 'http://localhost:3000'
+>>>>>>> 2586f38e224fe59633c524af06b71312ee82312b
           }
         });
         console.log(response.data)
