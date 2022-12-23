@@ -44,23 +44,6 @@ body {
 }
 
 
-/*サイト開いたときのアニメーション*/
-.text1::before{
-  animation: shine .6s ease 1.5s;
-  content:"";
-  position: absolute;
-  top: 0;
-  left: -250px;
-  width: 100%;
-  height: 100%;
-  transform: rotate3d(0,0,1,-45deg) translate3d(0,-120%,0);
-}
-
-@keyframes shine {
-  0% {transform: rotate3d(0,0,1,-45deg) translate3d(0,-120%,0);background: rgba(255,255,255,0.5);}
-  100% {transform: rotate3d(0,0,1,-25deg) translate3d(0,150%,0);background: rgba(255,255,255,0.5);}
-}
-
 
 /*リンク色*/
 a:link{
