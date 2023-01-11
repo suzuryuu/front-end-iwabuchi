@@ -11,3 +11,5 @@
 12/21 title更新　title.css更新
 
 12/23 App.css更新　
+
+1/11 Home.js Home.css更新(design)
