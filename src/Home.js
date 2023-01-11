@@ -82,7 +82,8 @@ export default function Home() {
           </a>
         </Grid>
       </Grid>
-
+      
+      {/*ニュース的なもの*/}
       <text class="text">News</text>
 
       <Grid
