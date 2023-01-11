@@ -1,0 +1,10 @@
+.text{
+    font-size: 50px;
+    font-family: "sans-serif";
+    font-style: italic;
+}
+
+.game{
+    font-weight: bold;
+    display: flex;
+}
