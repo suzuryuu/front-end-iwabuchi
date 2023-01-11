@@ -6,6 +6,17 @@ import ForumIcon from "@mui/icons-material/Forum";
 import IconButton from "@mui/material/IconButton";
 import Grid from "@mui/material/Grid";
 
+//newsカード
+import Card from "@mui/material/Card";
+import CardMedia from "@mui/material/CardMedia";
+import CardContent from "@mui/material/CardContent";
+import Typography from "@mui/material/Typography";
+import valo from "./valo.jpg";
+import apex from "./apex.jpg";
+import spla from "./spla.jpg";
+
+import "./Home.css"
+
 /*タグの一覧*/
 
 const tag = [
@@ -42,6 +53,7 @@ export default function Home() {
           />
         </Grid>
 
+        {/*paramsの値で*/}
         <Grid item xs={4}>
           <Autocomplete
             disablePortal
@@ -69,6 +81,43 @@ export default function Home() {
             </IconButton>
           </a>
         </Grid>
+      </Grid>
+
+      <text class="text">News</text>
+
+      <Grid
+        container
+        direction="row"
+        justifyContent="space-evenly"
+        alignItems="center"
+      >
+        <text class="game">VALORANT</text>
+        <Card sx={{ maxWidth: 345 }}>
+          <CardMedia sx={{ height: 140 }} image={valo} title="news valo" />
+          <CardContent>
+            <Typography variant="h6" color="black">
+              valo champion group of team performance
+            </Typography>
+          </CardContent>
+        </Card>
+        <text class="game">Apex Legends</text>
+        <Card sx={{ maxWidth: 345 }}>
+          <CardMedia sx={{ height: 140 }} image={apex} title="news apex" />
+          <CardContent>
+            <Typography variant="h6" color="black" >
+              apex champion group of team performance
+            </Typography>
+          </CardContent>
+        </Card>
+        <text class="game">Splatoon</text>
+        <Card sx={{ maxWidth: 345 }}>
+          <CardMedia sx={{ height: 140 }} image={spla} title="news spla" />
+          <CardContent>
+            <Typography variant="h6" color="black">
+              spla champion group of team performance
+            </Typography>
+          </CardContent>
+        </Card>
       </Grid>
     </box>
   );
