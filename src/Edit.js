@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Avatar from "react-avatar-edit";
 import { Dialog } from "primereact/dialog";
@@ -18,6 +18,17 @@ export default function Edit() {
   const [pview, setpview] = useState(false);
   const profileFinal = profile.map((item) => item.pview);
   
+
+  //マウント時に初期プロフィール画像を設定
+  useEffect(() => {
+    // Update the document title using the browser API
+    setpview(
+      img
+    );
+    
+  },[]);
+
+
   const onClose = () => {
     setpview(null);
   };
@@ -27,6 +38,7 @@ export default function Edit() {
   };
 
   /*受け取り画像処理*/
+
   const saveCropImage = () => {
     if (pview != pview) {
       setprofile([...profile, { pview }]);
@@ -34,6 +46,8 @@ export default function Edit() {
       setimagecrop(false);
     }
   };
+
+  
 
   /*タグの一覧 変更する場合はここから*/
   const tag = [
@@ -45,10 +59,13 @@ export default function Edit() {
 
   // 値を変更した時にvalueに一時保存
   const [values, setValues] = React.useState({
+    //ダミーユーザーId
+    uid : 'test-id-value-00',
     nickname : '',
     intro : '',
     haveSkill : '',
-    wantSkill : ''
+    wantSkill : '',
+    picture : ''
   });
 
   //nicknameの値を更新
@@ -70,15 +87,18 @@ export default function Edit() {
 
   //　APIで編集結果を送信
   const onClickGetAPI = async() => {
+    
+    //pictureにプレビューした画像のバイナリを格納
+    values.picture = pview
 
-    const URL = "https://mhii07htra.execute-api.ap-northeast-1.amazonaws.com/deploy0_0/send"
+    const URL = "******"
     
     try {
         const response = await axios.post(URL,values,
         {
           headers: {
             'Content-Type': 'application/json',
-            'x-api-key': 'RycZ63oLxu4wt31H0wPZc7cT0X6sqgEW3tso8pGI'
+            'x-api-key': '******'
           }
         });
         console.log(response.data)
@@ -87,6 +107,7 @@ export default function Edit() {
         console.error(error)
         alert('リクエスト処理に失敗しました')
       }
+
     }
 
 
@@ -120,9 +141,10 @@ export default function Edit() {
             }}
             onClick={() => setimagecrop(true)}
             /*初期画像*/
-            src={profileFinal.length ? profileFinal : img}
+            src={profileFinal.length ? profileFinal : pview}
             alt=""
           />
+          
 
           <Dialog
             visible={imagecrop}
@@ -151,6 +173,8 @@ export default function Edit() {
             multiline
             variant="standard"
             onChange={handleChange_nick('nickname')}
+            //画面描画時に取得したユーザー名を初期値として設定
+            defaultValue={"テスト表示：名前"}
           />
         </Grid>
 
@@ -162,6 +186,8 @@ export default function Edit() {
             multiline
             variant="standard"
             onChange={handleChange_intro('intro')}
+            //画面描画時に取得した自己紹介を初期値として設定
+            defaultValue={"テスト表示：自己紹介"}
           />
         </Grid>
 
@@ -183,7 +209,6 @@ export default function Edit() {
               setInputValue_have(newInputValue)
               setValues({ ...values, haveSkill: newInputValue});
             }}
-
           />
         </Grid>
 
