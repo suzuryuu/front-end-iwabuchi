@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import axios, { formToJSON } from "axios";
 import Avatar from "react-avatar-edit";
 import { Dialog } from "primereact/dialog";
 import { Button } from "primereact/button";
@@ -17,17 +17,28 @@ export default function Edit() {
   const [profile, setprofile] = useState([]);
   const [pview, setpview] = useState(false);
   const profileFinal = profile.map((item) => item.pview);
-  
+  const API_ENDPOINT = "****"
 
+  // const queryParam = '?suid=' + currentUserID;  本来はcurrentUserIDを設定、今はダミーで代用
+  const queryParam = '?id=test-id-value-00';
+  const getURL = API_ENDPOINT + "/get" + queryParam
+
+  // Update the document title using the browser API
+  const [JSONResultStr, setJSONStr] = React.useState('');
+  
   //マウント時に初期プロフィール画像を設定
   useEffect(() => {
-    // Update the document title using the browser API
-    setpview(
-      img
-    );
-    
+    axios.get(getURL, {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Headers': '*',
+  }).then((res) => {
+      setJSONStr(JSON.stringify(res.data))
+      console.log(res.data)
+      console.log("データ取得成功")
+  }).catch((e) => {
+      console.log(e)
+  })
   },[]);
-
 
   const onClose = () => {
     setpview(null);
@@ -46,8 +57,6 @@ export default function Edit() {
       setimagecrop(false);
     }
   };
-
-  
 
   /*タグの一覧 変更する場合はここから*/
   const tag = [
@@ -84,21 +93,20 @@ export default function Edit() {
   //wantSkillの値の更新
   const [inputValue_want, setInputValue_want] = React.useState('');
 
-
   //　APIで編集結果を送信
   const onClickGetAPI = async() => {
     
+    const sendURL = API_ENDPOINT+"/send"
+
     //pictureにプレビューした画像のバイナリを格納
     values.picture = pview
-
-    const URL = "******"
     
     try {
-        const response = await axios.post(URL,values,
+        const response = await axios.post(sendURL,values,
         {
           headers: {
             'Content-Type': 'application/json',
-            'x-api-key': '******'
+            'x-api-key': '****'
           }
         });
         console.log(response.data)
@@ -109,7 +117,6 @@ export default function Edit() {
       }
 
     }
-
 
   return (
     <Box>
