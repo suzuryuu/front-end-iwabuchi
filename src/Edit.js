@@ -3,11 +3,12 @@ import axios, { formToJSON } from "axios";
 import Avatar from "react-avatar-edit";
 import { Dialog } from "primereact/dialog";
 import { Button } from "primereact/button";
-import img from "./user.jpg";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Autocomplete from "@mui/material/Autocomplete";
 import TextField from "@mui/material/TextField";
+import apigatewayConf from './conf/apigateway'
+
 
 
 export default function Edit() {
@@ -16,30 +17,47 @@ export default function Edit() {
   const [src] = useState(false);
   const [profile, setprofile] = useState([]);
   const [pview, setpview] = useState(false);
-  const profileFinal = profile.map((item) => item.pview);
-  const API_ENDPOINT = "****"
+  
+  /*サムネイル画像処理*/
+  const [thumbnail_imagecrop, setthumbnail_imagecrop] = useState("");
+  const [thumbnail_src] = useState(false);
+  const [thumbnail_profile, setthumbnail_profile] = useState([]);
+  const [thumbnail_pview, setthumbnail_pview] = useState(false);
 
+  
+  const profileFinal = profile.map((item) => item.pview);
+  const API_ENDPOINT = apigatewayConf.EDIT_END_POINT
+  
   // const queryParam = '?suid=' + currentUserID;  本来はcurrentUserIDを設定、今はダミーで代用
   const queryParam = '?id=test-id-value-00';
-  const getURL = API_ENDPOINT + "/get" + queryParam
+  const getURL = API_ENDPOINT + "/deploy0_0/get" + queryParam
 
-  // Update the document title using the browser API
-  const [JSONResultStr, setJSONStr] = React.useState('');
-  
   //マウント時に初期プロフィール画像を設定
   useEffect(() => {
+    console.log(getURL)
     axios.get(getURL, {
       'Access-Control-Allow-Origin': '*',
       'Access-Control-Allow-Headers': '*',
   }).then((res) => {
-      setJSONStr(JSON.stringify(res.data))
-      console.log(res.data)
+      console.log(res.data[0].picture)
+      setpview(
+        res.data[0].picture
+      )
+      values.nickname = res.data[0].nickname
+      values.intro = res.data[0].intro
+      values.haveSkill = res.data[0].haveSkill
+      values.wantSkill = res.data[0].wantSkill
+      values.picture = res.data[0].picture
+      values.thumbnail = res.data[0].thumbnail
+      console.log(values)
       console.log("データ取得成功")
   }).catch((e) => {
       console.log(e)
   })
   },[]);
 
+  
+  /*受け取り画像処理*/
   const onClose = () => {
     setpview(null);
   };
@@ -47,8 +65,6 @@ export default function Edit() {
   const onCrop = (view) => {
     setpview(view);
   };
-
-  /*受け取り画像処理*/
 
   const saveCropImage = () => {
     if (pview != pview) {
@@ -58,6 +74,7 @@ export default function Edit() {
     }
   };
 
+
   /*タグの一覧 変更する場合はここから*/
   const tag = [
     { label: "ApexLegends" },
@@ -66,7 +83,7 @@ export default function Edit() {
     { label: "League of Legends" },
   ];
 
-  // 値を変更した時にvalueに一時保存
+  // 値を変更した時にvalueに保存
   const [values, setValues] = React.useState({
     //ダミーユーザーId
     uid : 'test-id-value-00',
@@ -74,7 +91,8 @@ export default function Edit() {
     intro : '',
     haveSkill : '',
     wantSkill : '',
-    picture : ''
+    picture : '',
+    thumbnail : '',
   });
 
   //nicknameの値を更新
@@ -93,20 +111,23 @@ export default function Edit() {
   //wantSkillの値の更新
   const [inputValue_want, setInputValue_want] = React.useState('');
 
-  //　APIで編集結果を送信
+  //保存ボタンをクリックでAPIで編集結果を送信
   const onClickGetAPI = async() => {
     
-    const sendURL = API_ENDPOINT+"/send"
+    const sendURL = API_ENDPOINT+"/deploy0_0/send"
 
     //pictureにプレビューした画像のバイナリを格納
     values.picture = pview
+    values.thumbnail = "ダミー"
     
+    console.log(sendURL)
+    console.log(values)
     try {
         const response = await axios.post(sendURL,values,
         {
           headers: {
             'Content-Type': 'application/json',
-            'x-api-key': '****'
+            'x-api-key': apigatewayConf.API_KEY
           }
         });
         console.log(response.data)
@@ -181,7 +202,6 @@ export default function Edit() {
             variant="standard"
             onChange={handleChange_nick('nickname')}
             //画面描画時に取得したユーザー名を初期値として設定
-            defaultValue={"テスト表示：名前"}
           />
         </Grid>
 
@@ -194,7 +214,7 @@ export default function Edit() {
             variant="standard"
             onChange={handleChange_intro('intro')}
             //画面描画時に取得した自己紹介を初期値として設定
-            defaultValue={"テスト表示：自己紹介"}
+
           />
         </Grid>
 
